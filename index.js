@@ -20,7 +20,7 @@ function Physical(avatar, collidables, dimensions, terminal) {
   this.friction = new THREE.Vector3(1, 1, 1)
 
   this.rotation = this.avatar.rotation
-  this.default_friction = 1
+  this.default_friction = {x: 0.95, y: 1, z: 0.95}
 
   // default yaw/pitch/roll controls to the avatar
   this.yaw =
@@ -150,9 +150,7 @@ proto.tick = function(dt) {
   world_desired.x = END.x - START.x
   world_desired.y = END.y - START.y
   world_desired.z = END.z - START.z
-  this.friction.x =
-  this.friction.y =
-  this.friction.z = this.default_friction
+  this.friction = this.default_friction
 
   // save old copies, since when normally on the
   // ground, this.resting.y alternates (false,-1)
