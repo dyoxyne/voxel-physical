@@ -150,7 +150,9 @@ proto.tick = function(dt) {
   world_desired.x = END.x - START.x
   world_desired.y = END.y - START.y
   world_desired.z = END.z - START.z
-  this.friction = this.default_friction
+  this.friction.x = this.default_friction.x
+  this.friction.y = this.default_friction.y
+  this.friction.z = this.default_friction.z
 
   // save old copies, since when normally on the
   // ground, this.resting.y alternates (false,-1)
